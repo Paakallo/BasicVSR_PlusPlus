@@ -24,8 +24,10 @@ RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/
 
 # Install mmediting
 RUN conda clean --all
-RUN git clone https://github.com/open-mmlab/mmediting.git /mmediting
-WORKDIR /mmediting
+# RUN git clone https://github.com/open-mmlab/mmediting.git /mmediting
+# WORKDIR /mmediting
+RUN git clone https://github.com/Paakallo/BasicVSR_PlusPlus /BasicVSR_PlusPlus
+WORKDIR /BasicVSR_PlusPlus
 ENV FORCE_CUDA="1"
 RUN pip install mmcv-full==1.3.1 -f https://download.openmmlab.com/mmcv/dist/cu101/torch1.6.0/index.html
 RUN pip install -r requirements.txt
